@@ -2,18 +2,18 @@
 # EECS1015- Fall 2022
 # Lab 1
 #
-# Your name: Huanrui Cao
+# Your name: 
 # Your section: A
-# Your student ID: 219256809
-# Your email contact: saikoro@my.yorku.ca
+# Your student ID: 
+# Your email contact: 
 #######################################
 
 # Please fill out your info for each lab 
 print("---- Lab 1 ----")
-print("Name: Huanrui Cao")
+print("Name: ")
 print("Section A")
-print("Student id: 219256809 ")
-print("Email: saikoro@my.yorku.ca")
+print("Student id: ")
+print("Email: ")
 
 # Task 1
 print('\n---- Task 1: Currency converter ----')
