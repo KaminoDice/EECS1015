@@ -1,3 +1,23 @@
+### Task 2.5
+print("\n---- Task 2.5: Draw square ----")
+
+radius = int(input("Input size between 1-10:"))
+
+while (radius > 10) or (radius < 1):
+    radius = int(input("Input size between 1-10:"))
+
+for y in range(-10, 11):
+    if (y > radius) or (y < -radius):
+        for x in range(-10, 11):
+            print(".",end="")
+        print("")
+    else:
+            for x in range(-10, 11):
+                if (x > radius) or (x < -radius):
+                    print(".", end="")
+                else:
+                    print("*", end="")
+            print("")
 
 '''
 import math
