@@ -1,3 +1,4 @@
+
 '''
 import math
 print('\n---- Task 4: Simple cylinder computation ----')
@@ -17,7 +18,7 @@ stringA = string2[:len1]
 stringB = string3.upper()
 stringC = string2[(len1+len3):]
 print(stringA+"*"+stringB+"*"+stringC)
-'''
+
 print("\n---- Task 4: Exponent ----")
 expo = input("Input exponent in the form x^y: ")
 index = expo.find("^")
@@ -26,3 +27,4 @@ n2 = int(expo[index+1:])
 print("Extracted numbers %d %d" % (n1 ,n2) )
 n3 = n1**n2
 print("%d" % n3)
+'''

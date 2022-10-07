@@ -13,7 +13,7 @@ amount_list = [1.00, 2.50, 2.25, 1.50, 1.00]
 
 sel_item = int(input("Selection: "))
 if sel_item in range(1, 6):
-    amount = float(amount_list[sel_item])
+    amount = float(amount_list[sel_item-1])
 else:
     print("Invalid selection - setting amount to $0")
     amount = 0.00
