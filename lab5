@@ -84,14 +84,14 @@ def task3():
     code_string = input("Input message : ")
     code_list = [*code_string.upper()]
     coder = input("Encode (E) or Decode (D)? ")
-    if coder.upper() == 'E':
+    if coder == 'E':
         for char in code_list:
             if char in encoder.keys():
                 print(encoder[char], end="")
             else:
                 print("\nInvalid input")
                 break
-    elif coder.upper() == 'D':
+    elif coder == 'D':
         for char in code_list:
             if char in decoder.keys():
                 print(decoder[char], end="")
@@ -104,14 +104,14 @@ def task3():
         code_string = input("Input message : ")
         code_list = [*code_string.upper()]
         coder = input("Encode (E) or Decode (D)? ")
-        if coder.upper() == 'E':
+        if coder == 'E':
             for char in code_list:
                 if char in encoder.keys():
                     print(encoder[char], end="")
                 else:
                     print("\nInvalid input")
                     break
-        elif coder.upper() == 'D':
+        elif coder == 'D':
             for char in code_list:
                 if char in decoder.keys():
                     print(decoder[char], end="")
@@ -124,12 +124,10 @@ def task3():
 
 def task4():
     input_num = input("Enter 5 numbers between 1-20: ")
-    input_lis = input_num.split(" ")
-    input_split = set(input_lis)
-    while len(input_lis) != 5 or len(input_split) != 5:
+    input_split = set(input_num.split(" "))
+    while len(input_split) != 5:
         input_num = input("Enter 5 numbers between 1-20: ")
-        input_lis = input_num.split(" ")
-        input_split = set(input_lis)
+        input_split = set(input_num.split(" "))
     ran_set = random_set()
     print_set(ran_set, "Computer's numbers:")
     input_set = set(map(int, input_split))
@@ -147,12 +145,10 @@ def task4():
     again = input("Try again [Y/N]? ")
     while again == 'Y' or again == 'y':
         input_num = input("Enter 5 numbers between 1-20: ")
-        input_lis = input_num.split(" ")
-        input_split = set(input_lis)
-        while len(input_lis) != 5 or len(input_split) != 5:
+        input_split = set(input_num.split(" "))
+        while len(input_split) != 5:
             input_num = input("Enter 5 numbers between 1-20: ")
-            input_lis = input_num.split(" ")
-            input_split = set(input_lis)
+            input_split = set(input_num.split(" "))
         ran_set = random_set()
         print_set(ran_set, "Computer's numbers:")
         input_set = set(map(int, input_split))
