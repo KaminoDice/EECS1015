@@ -128,11 +128,20 @@ def task3():
 # Task 4
 # Write functions print_image and uncompress_rle_image() here
 def print_image(image):
-    pass
+    for item in image:
+        print(item)
 
 
 def uncompress_rle_image(rle_image):
-    pass
+    image_list = []
+    for i in rle_image:
+        string_mup = ""
+        for j in i:
+            string_time = j[0]
+            string_raw = j[1]
+            string_mup = string_mup + string_raw*string_time
+        image_list.append(string_mup)
+    return image_list
 
 
 def task4():
@@ -173,15 +182,15 @@ def task4():
                   [(52, '.')]]
 
     # uncomment code for task4
-    # print("\t\tImage 1\n")
-    # image1 = uncompress_rle_image(rle_image1)
-    # print_image(image1)
-    # print("\t\tImage 2\n")
-    # image2 = uncompress_rle_image(rle_image2)
-    # print_image(image2)
-    # print("\t\tImage 3\n")
-    # image3 = uncompress_rle_image(rle_image3)
-    # print_image(image3)
+    print("\t\tImage 1\n")
+    image1 = uncompress_rle_image(rle_image1)
+    print_image(image1)
+    print("\t\tImage 2\n")
+    image2 = uncompress_rle_image(rle_image2)
+    print_image(image2)
+    print("\t\tImage 3\n")
+    image3 = uncompress_rle_image(rle_image3)
+    print_image(image3)
 
 
 def main():
