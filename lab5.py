@@ -26,10 +26,7 @@ def task0():
 
 
 def task1():
-    num_list = input_list()
-    avg = compute_average(num_list)
-    print("List average %.2f" % avg)
-    again = input("Do again [Y/N]? ")
+    again = 'Y'
     while again == 'Y' or again == 'y':
         num_list = input_list()
         avg = compute_average(num_list)
@@ -81,25 +78,8 @@ def task3():
                '^': 'W', '+': 'X', '6': 'Y', '-': 'Z', 'H': '1', 'A': '2', 'J': '3', '7': '4', '4': '5', 'D': '6',
                'E': '7',
                '9': '8', ')': '9', ';': '0', '3': ',', '/': '.', '_': ' '}
-    code_string = input("Input message : ")
-    code_list = [*code_string.upper()]
-    coder = input("Encode (E) or Decode (D)? ")
-    if coder.upper() == 'E':
-        for char in code_list:
-            if char in encoder.keys():
-                print(encoder[char], end="")
-            else:
-                print("\nInvalid input")
-                break
-    elif coder.upper() == 'D':
-        for char in code_list:
-            if char in decoder.keys():
-                print(decoder[char], end="")
-            else:
-                print("\nInvalid input")
-                break
-    print("")
-    again = input("Encode/decode again [Y/N]? ")
+
+    again = "Y"
     while again == 'Y' or again == 'y':
         code_string = input("Input message : ")
         code_list = [*code_string.upper()]
@@ -123,36 +103,13 @@ def task3():
 
 
 def task4():
-    input_num = input("Enter 5 numbers between 1-20: ")
-    input_lis = input_num.split(" ")
-    input_split = set(input_lis)
-    while len(input_lis) != 5 or len(input_split) != 5:
-        input_num = input("Enter 5 numbers between 1-20: ")
-        input_lis = input_num.split(" ")
-        input_split = set(input_lis)
-    ran_set = random_set()
-    print_set(ran_set, "Computer's numbers:")
-    input_set = set(map(int, input_split))
-    com_set = ran_set & input_set
-    len_set = len(com_set)
-    if len_set == 1:
-        print_set(com_set, "1 matche found: ")
-    elif len_set == 0:
-        print("NO MATCHES")
-    elif len_set == 5:
-        print("YOU WIN!")
-    else:
-        com_str = str(len_set) + " matches found: "
-        print_set(com_set, com_str)
-    again = input("Try again [Y/N]? ")
+    again = "Y"
     while again == 'Y' or again == 'y':
-        input_num = input("Enter 5 numbers between 1-20: ")
+        input_num = input("Enter 5 numbers between 1-20: ").strip()
         input_lis = input_num.split(" ")
         input_split = set(input_lis)
-        while len(input_lis) != 5 or len(input_split) != 5:
-            input_num = input("Enter 5 numbers between 1-20: ")
-            input_lis = input_num.split(" ")
-            input_split = set(input_lis)
+        if len(input_lis) != 5 or len(input_split) != 5:
+            continue
         ran_set = random_set()
         print_set(ran_set, "Computer's numbers:")
         input_set = set(map(int, input_split))

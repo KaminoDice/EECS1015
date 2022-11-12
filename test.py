@@ -1,3 +1,9 @@
+x = set(input("Enter 5 numbers between 1-20: ").split())
+print(x)
+
+
+
+'''
 ### Task 2.5
 print("\n---- Task 2.5: Draw square ----")
 
@@ -18,8 +24,6 @@ for y in range(-10, 11):
                 else:
                     print("*", end="")
             print("")
-
-'''
 import math
 print('\n---- Task 4: Simple cylinder computation ----')
 a="pi"
