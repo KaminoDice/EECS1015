@@ -16,7 +16,7 @@ def print_student_info():
     print("Email: saikoro@my.yorku.ca")
 
 def is_vaild_sequence(dna):
-    if dna[0] not in ['A','T','G','C']:
+    if dna[0] not in ['A','T','G','C'] and len(dna) != 50:
         return False
     if len(dna) == 1:
         return True
@@ -24,12 +24,47 @@ def is_vaild_sequence(dna):
 
 # class for task 2
 class virus:
-
+    DNAbase = ('A','T','G','C')
     def __init__(self, DNAinput=""):
-        if len(DNAinput) ==50 and is_vaild_sequence(DNAinput), 
-        self.DNA = DNAinput
-        "Invalid DNA input! "
-        
+        assert len(DNAinput) ==0 or len(DNAinput) == 50, "Invalid DNA input! "
+        if len(DNAinput) == 50 :
+            assert is_vaild_sequence(DNAinput), "Invalid DNA input! "
+            self.DNA = DNAinput
+        else:
+            for i in range(50):
+                self.tokenDNA = random.randint(0,3)
+                DNAinput = DNAinput + virus.DNAbase[self.tokenDNA]
+            self.DNA = DNAinput
+
+    def getDNA(self):
+        return self.DNA
+
+    def replicate(self):
+        self.mutateProb = random.randint(1,100)
+        if self.mutateProb > 94:
+            self.mutateIndex = random.randint(0,49)
+            self.mutateToken = random.randint(0,3)
+            while self.DNA[self.mutateIndex] == virus.DNAbase[self.mutateToken]:
+                self.mutateToken = random.randint(0, 3)
+            mutateDNA = self.DNA[:self.mutateIndex]+ virus.DNAbase[self.mutateToken]+ self.DNA[self.mutateIndex+1:]
+            x = virus(mutateDNA)
+            return x
+        else:
+            x = virus(self.DNA)
+            return x
+
+def find_mutation(virus1, virus2):
+    virus1.getDNA()
+    virus2.getDNA()
+    diffStr = ""
+    for i in range(50):
+        if virus1.DNA[i] == virus2.DNA[i]:
+            diffStr = diffStr +" "
+        else:
+            diffStr = diffStr + "^"
+    return diffStr
+
+
 
 # class for task 1
 class lotto_ticket:
@@ -51,8 +86,8 @@ class lotto_ticket:
     def print_and_return_win(self, lotto_numbers) -> int:
         com_set = self.numbers & lotto_numbers
         print("Ticket #[%3d]" %(self.ticket_id),end='')
-        for i in self.numbers:
-            if i in lotto_numbers:
+        for i in lotto_numbers:
+            if i in self.numbers:
                 print(f" *{i:02d}* ",end="")
             else:
                 print(f"  {i:02d}  ",end="")
@@ -111,7 +146,30 @@ def task1():
 
 
 def task2():
-    pass
+    again = 'Y'
+    while again == 'Y':
+        virusName = input("Name of virus: ")
+        my_virus = virus()
+        original_virus = my_virus
+        print("Original DNA sequence: "+my_virus.getDNA())
+        N = int(input("How many times to replicate? "))
+        for i in range(N):
+            print(f"Replica [{i:4d}] DNA sequence: "+ my_virus.getDNA())
+            my_virus = my_virus.replicate()
+        print(f"Comparing latest {virusName:s} virus to the original {virusName:s}.")
+        print(original_virus.getDNA())
+        print(my_virus.getDNA())
+        mutationStr = find_mutation(original_virus, my_virus)
+        mutationNum = mutationStr.count('^')
+        if mutationNum == 0:
+            print("No mutation detected.")
+        elif mutationNum > 5:
+            print(mutationStr)
+            print(f"{mutationNum:d} mutations -- a *new* virus has been created.")
+        else:
+            print(mutationStr)
+            print(f"{mutationNum:d} mutations -- virus is the same.")
+        again = input("Try again? ").upper()
 
 def main():
     task0()
