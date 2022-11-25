@@ -1,9 +1,69 @@
+class A:
+    y = 0     
+    def __init__(self, id):
+        self.x = id
+        A.y = id
+    def printID(self):
+        print(self.x)
+x1 = A(1)
+x2 = A(10) 
+x3 = A(-1)
+
+x1.printID()
+
+'''
+
+class Foo:
+   def __init__(self, x):
+      self.x = 10
+   def print(self):
+      print(self.x)
+a = Foo(10)
+b = Foo(20)
+a.x = 20
+a.print()
+b.print()
+
+class Foo:
+   def _init_(self, name, age = 18):
+      self.name = name
+      self.age = age
+
+class A:
+    def __init__(self, id):
+        self.x = id
+
+class B:
+    def __init__(self, id):
+        self.x = A(id+1)
+
+class C:
+    def __init__(self, id):
+         self.x = B(id+1)
+
+x = C(10)
+print(x.x.x.x)
+
+class A:
+  y = 0     
+  def __init__(self, id):
+    self.x = id
+    A.y = id
+  def printID(self):
+    print(A.y)
+
+def main():
+  x1 = A(1)
+  x2 = A(10) 
+  x3 = A(-1)
+  x1.printID()
+
+if __name__ == "__main__":
+  main()
+
 x = set(input("Enter 5 numbers between 1-20: ").split())
 print(x)
 
-
-
-'''
 ### Task 2.5
 print("\n---- Task 2.5: Draw square ----")
 
